@@ -1,27 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+  const [name, setName] = useState('Franky');
+  const [person, setPerson] = useState({ name: 'Mario', age: 39 });
+
+  const clickHandler = () => {
+    setName('Bruce Lee');
+    setPerson({ name: 'Luigi', age: 62});
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.boldText}>
-          Hello World!
-        </Text>
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.boldText}>
-          Lorum Ipsum bla bla . <Text style={styles.notBold}>Realy?</Text> fefefe
-        </Text>
-        <Text>
-          Lorum Ipsum bla bla .
-        </Text>
-        <Text>
-          Lorum Ipsum bla bla .
-        </Text>
-      </View>
-      <StatusBar style="auto" />
+      <Text>My name is {name}</Text>
+      <Text>His name is {person.name} and his age is {person.age}</Text>
+
+      <View style={styles.buttonContainer}>
+      <Button title='update state' onPress={clickHandler} />
+    </View>
     </View>
   );
 }
@@ -33,18 +29,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  header: {
-    backgroundColor: 'blue',
-    padding: 20,
-  },
-  boldText: {
-    fontWeight: 'bold',
-  },
-  body: {
-    backgroundColor: 'yellow',
-    padding: 20,
-  },
-  notBold: {
-    fontWeight: 'normal'
+
+  buttonContainer: {
+    marginTop: 20,
   }
 });
