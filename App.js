@@ -4,7 +4,8 @@ import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyb
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
-import Sandbox from './components/sandbox';
+// import Sandbox from './components/sandbox';
+
 
 export default function App() {
 
